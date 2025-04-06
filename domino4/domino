@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# GPIO 18, 19, 20, 21번 핀을 출력 모드로 설정
+pinctrl set 18 op
+pinctrl set 19 op
+pinctrl set 20 op
+pinctrl set 21 op
+
+# 무한 루프 시작
+while true; do
+    # 1초 간격으로 GPIO를 순차적으로 High → Low로 깜빡이게 설정
+
+    pinctrl set 18 dh   # GPIO 18 high (켜기)
+    sleep 1             # 1초 대기
+    pinctrl set 18 dl   # GPIO 18 low (끄기)
+    pinctrl set 19 dh   # GPIO 19 high
+    sleep 1
+    pinctrl set 19 dl   # GPIO 19 low
+    pinctrl set 20 dh   # GPIO 20 high
+    sleep 1
+    pinctrl set 20 dl   # GPIO 20 low
+    pinctrl set 21 dh   # GPIO 21 high
+    sleep 1
+    pinctrl set 21 dl   # GPIO 21 low
+
+done
