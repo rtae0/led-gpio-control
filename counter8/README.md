@@ -1,4 +1,5 @@
 # GPIO 3비트 LED 출력 스크립트
+유튜브 : https://youtu.be/t5DGeSYLvnM
 
 이 프로젝트는 Raspberry Pi의 GPIO 핀 3개를 이용해  
 0부터 7까지의 숫자를 **3비트 이진수 형태로 LED로 출력**하는 Bash 스크립트입니다.
