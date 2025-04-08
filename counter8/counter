@@ -5,18 +5,20 @@ pinctrl set 18 op
 pinctrl set 19 op
 pinctrl set 20 op
 
-# 0부터 7까지 반복
-for i in {0..7}; do
+# 무한 반복
+while true; do
+    # 0부터 7까지 반복
+    for i in {0..7}; do
+        # 각 비트를 추출해서 해당 GPIO 핀에 출력
+        bit0=$(( (i >> 0) & 1 ))  # LSB
+        bit1=$(( (i >> 1) & 1 ))  # 중간 비트
+        bit2=$(( (i >> 2) & 1 ))  # MSB
 
-    # 각 비트를 추출해서 해당 GPIO 핀에 출력
-    bit0=$(( (i >> 0) & 1 ))   # LSB
-    bit1=$(( (i >> 1) & 1 ))   # 중간 비트
-    bit2=$(( (i >> 2) & 1 ))   # MSB
+        # 핀에 high or low 설정
+        [ $bit0 -eq 1 ] && pinctrl set 18 dh || pinctrl set 18 dl
+        [ $bit1 -eq 1 ] && pinctrl set 19 dh || pinctrl set 19 dl
+        [ $bit2 -eq 1 ] && pinctrl set 20 dh || pinctrl set 20 dl
 
-    # 핀에 high or low 설정
-    [ $bit0 -eq 1 ] && pinctrl set 18 dh || pinctrl set 18 dl
-    [ $bit1 -eq 1 ] && pinctrl set 19 dh || pinctrl set 19 dl
-    [ $bit2 -eq 1 ] && pinctrl set 20 dh || pinctrl set 20 dl
-
-    sleep 1
+        sleep 1
+    done
 done
