@@ -1,5 +1,6 @@
 # Raspberry Pi GPIO 제어 미션 (Python 버전)
 
+유튜브 : https://youtu.be/1c1uZc7WrLY 
 이 프로젝트는 Raspberry Pi의 GPIO 핀과 Python을 이용하여 다양한 형태로 LED를 제어하는 실습입니다.  
 버튼 입력을 받아 실시간 반응하거나 LED 상태를 토글하며, 기본적인 디지털 회로 동작 원리를 익힐 수 있습니다.
 
